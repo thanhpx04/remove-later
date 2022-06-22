@@ -14,7 +14,7 @@ export default function routes(app, addon) {
         );
     });
 
-    app.get('/main', addon.authenticate(true), (req, res) => {
+    app.get('/main', (req, res) => {
       const {issueKey} = req.query
       getIssueSummary(addon, req, issueKey).then((issueSummary) => {
         res.render(
