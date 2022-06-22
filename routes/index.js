@@ -5,7 +5,7 @@ export default function routes(app, addon) {
         res.redirect('/atlassian-connect.json');
     });
 
-    app.get('/hello-world', (req, res) => {
+    app.get('/hello-world', addon.authenticate(), (req, res) => {
         res.render(
           'hello-world.hbs', // change this to 'hello-world.jsx' to use the Atlaskit & React version
           {
