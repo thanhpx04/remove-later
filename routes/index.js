@@ -31,5 +31,15 @@ export default function routes(app, addon) {
       );
     });
 
+    async function getIssueSummary (addon, req, issueKey)  {
+      return new Promise((resolve, reject) => {
+
+          var httpClient = addon.httpClient(req);
+          httpClient.get(`/rest/api/3/issue/${issueKey}`, function (err, res, body) {
+              resolve(JSON.parse(body).fields.summary)
+          });
+      })
+    }
+
     // Add additional route handlers here...
 }
