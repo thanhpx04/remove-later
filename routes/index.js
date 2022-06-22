@@ -13,11 +13,22 @@ export default function routes(app, addon) {
         res.render(
           'hello-world.hbs', // change this to 'hello-world.jsx' to use the Atlaskit & React version
           {
-            title: 'Atlassian Connect'
+            title: 'ABC'
             //, issueId: req.query['issueId']
             //, browserOnly: true // you can set this to disable server-side rendering for react views
           }
         );
+    });
+
+    app.get('/main', addon.authenticate(), (req, res) => {
+      const {issueKey} = req.query
+      res.render(
+        'main.hbs',
+        {
+          title: 'Main',
+          issueKey: issueKey
+        }
+      );
     });
 
     // Add additional route handlers here...
