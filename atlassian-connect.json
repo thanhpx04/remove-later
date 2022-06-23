@@ -4,11 +4,7 @@
     "description": "My very first app",
     "baseUrl": "https://demo-then-remove-later.azurewebsites.net",
     "authentication": {
-        "type": "jwt"
-    },
-    "lifecycle": {
-        "installed": "/installed",
-        "uninstalled": "/uninstalled"
+        "type": "none"
     },
     "scopes": [
         "READ"
